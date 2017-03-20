@@ -1,8 +1,5 @@
 function y = makeErrorProbPlot( codes )
-%MAKEERRORPROBPLOT Summary of this function goes here
-%   Detailed explanation goes here
-%figure(1)
-y = zeros(length(codes(1).timeTotal), length(codes));
+y = zeros(length(codes(1).errorTotal), length(codes));
 for i=1:length(codes)
     code = codes(i);
     for j = 1:length(code.errorTotal)

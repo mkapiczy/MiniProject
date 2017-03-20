@@ -20,7 +20,7 @@ g1 = char(poly2sym(g1)); % = '1 + x^2 + x^3'
 g2 = char(poly2sym(g2)); % = '1 + x + x^3'
 g3 = char(poly2sym(g3)); % = '1 + x + x^2 + x^3'
 
-trellis_Conv2 = poly2trellis(4, {g1, g2, g3});
+trellis_Conv2 = poly2trellis(4, {g1, g2});
 code2 = MyCode (trellis_Conv2, 4);
 
 %C_conv3
@@ -34,7 +34,7 @@ g2 = char(poly2sym(g2)); % = '1 + x + x^2'
 g3 = char(poly2sym(g3)); % = '1 + x + x^2'
 g4 = char(poly2sym(g4)); % = '1 + x + x^2'
 
-trellis_Conv3 = poly2trellis(3, {g1, g2, g3, g4});
+trellis_Conv3 = poly2trellis(3, {g1, g2});
 code3 = MyCode (trellis_Conv3, 3);
 
 codes = [code1, code2, code3]
