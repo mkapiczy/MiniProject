@@ -1,4 +1,4 @@
-function y = makeTimePlot( codes )
+function y = makeTimePlot( codes,labels )
     %figure(2)
     y = zeros(length(codes(1).timeTotal), length(codes));
     for i=1:length(codes)
@@ -7,8 +7,9 @@ function y = makeTimePlot( codes )
             y(j,i) = code.timeTotal(j);
         end
     end
-    x = 0.0:0.01:0.1;
-    bar(x,y);
+    
+    bar(y);
+    xticklabels(labels);
     ylabel('Time');
     xlabel('Bit Error Probability');
 end

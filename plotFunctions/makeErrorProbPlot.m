@@ -1,4 +1,4 @@
-function y = makeErrorProbPlot( codes )
+function y = makeErrorProbPlot( codes ,labels)
 y = zeros(length(codes(1).errorTotal), length(codes));
 for i=1:length(codes)
     code = codes(i);
@@ -6,9 +6,10 @@ for i=1:length(codes)
         y(j,i) = code.errorTotal(j);
     end
 end
-x = 0.0:0.01:0.1;
-bar(x,y);
+
+bar(y);
 xlabel('Bit Error Probability');
+xticklabels(labels);
 ylabel('Bit Error Rate');
 end
 

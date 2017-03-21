@@ -1,18 +1,19 @@
 clear
 
+
 %Settings
 codes = setupCodesData();
-burstErrorFlag = false;
-burstLength = 8;
-bscErrorProb = 0.01;
-bscErrorInterval = 0.01;
-bscErrorThreshold = 0.11;
+burstErrorFlag = true;
+burstLength = 5;
+bscErrorProb = 0.05;
+burstInterval = 2;
+burstThreshold = 50;
 numberOfIterations = 1;
 
-xAxisValues = bscErrorProb:bscErrorInterval:bscErrorThreshold;
+xAxisValues = burstLength:burstInterval:burstThreshold;
 
 %SIMULATION%%%%%%
-while bscErrorProb < bscErrorThreshold
+while burstLength < burstThreshold
     
     for n = 1:numberOfIterations
         transmissionForCurrentErrorProb(codes, bscErrorProb, burstErrorFlag, burstLength);
@@ -23,10 +24,9 @@ while bscErrorProb < bscErrorThreshold
         code.calculateErrorTotalForCurrentErrorProb();
     end
     
-    bscErrorProb = bscErrorProb + bscErrorInterval;
+    burstLength = burstLength + burstInterval;
 end
 
-
-[errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes, xAxisValues);
+[errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes,  xAxisValues);
 
 [conv1Export, conv2Export, conv3Export] = exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);

@@ -1,4 +1,4 @@
-function y = makeTotalErrorsPlot( codes )
+function y = makeTotalErrorsPlot( codes,labels )
 
     y = zeros(length(codes(1).timeTotal), length(codes));
     for i=1:length(codes)
@@ -11,8 +11,9 @@ function y = makeTotalErrorsPlot( codes )
             y(j,i) = errorsCorrected;
         end
     end
-    x = 0.0:0.01:0.1;
-    bar(x,y);
+ 
+    bar(y);
+    xticklabels(labels);
     ylabel('Errors Corrected');
     xlabel('Bit Error Probability');
 end
