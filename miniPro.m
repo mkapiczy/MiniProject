@@ -47,18 +47,20 @@ end
 figure(1)
 subplot(2,1,1)
 %Different error prob plot
-makeErrorProbPlot(codes);
+errorProbArray = makeErrorProbPlot(codes);
+
 subplot(2,1,2)
 %Time plot
-makeTimePlot(codes);
+timeArray = makeTimePlot(codes);
 
 figure(2)
 subplot(2,1,1)
 %Errors total plot
-makeTotalErrorsPlot(codes);
+totalErrorArray = makeTotalErrorsPlot(codes);
 
 subplot(2,1,2)
 %Efficiency plot
-makeEfficiencyPlot(codes);
+efficiencyArray = makeEfficiencyPlot(codes);
 
-
+%Export Data
+exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);
