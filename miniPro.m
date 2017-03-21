@@ -1,66 +1,25 @@
-clear 
+clear
 
-codes = setupCodesData();
 
-%%%%%%SIMULATION%%%%%%
 %Settings
+codes = setupCodesData();
+[burstErrorFlag, burstLength, bscErrorProb, numberOfIterations] = setupSimulationProperties();
 
-burst_error = false;
-burst_length = 8;
-
-c1_time_total = []; 
-c2_time_total = [];
-c3_time_total = [];
-conv1_error_total = [];
-conv2_error_total = [];
-conv3_error_total = [];
-bsc_error_prob = 0.1;
-number_of_iterations = 2;
-
-while bsc_error_prob < 0.51
-   
-    for n = 1:number_of_iterations
-        
-        data = randi([0 1],1000000,1);
-        
-        for i =1:length(codes)
-            tic
-            %Error rate
-            codes(i).error = [codes(i).error, transmit(data, codes(i).trellis_Conv, bsc_error_prob, codes(i).costaint_Length*5, burst_error, burst_length)];
-            codes(i).time = [codes(i).time, toc]; 
-        end
-      
-    end   
+%SIMULATION%%%%%%
+while bscErrorProb < 0.51
     
-    %Add avg. time
-    for i = 1:length(codes)   
-        codes(i).timeTotal = [codes(i).timeTotal, mean(codes(i).time)];
-        codes(i).errorTotal = [codes(i).errorTotal, mean(codes(i).error)];
-        codes(i).error = [];
-        codes(i).time = [];
+    for n = 1:numberOfIterations
+        transmissionForCurrentErrorProb(codes, bscErrorProb, burstErrorFlag, burstLength);
     end
     
+    for code = codes
+        code.calculateTimeTotalForCurrentErrorProb();
+        code.calculateErrorTotalForCurrentErrorProb();
+    end
     
-    bsc_error_prob = bsc_error_prob + 0.1;
+    bscErrorProb = bscErrorProb + 0.1;
 end
 
-figure(1)
-subplot(2,1,1)
-%Different error prob plot
-errorProbArray = makeErrorProbPlot(codes);
+[errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes);
 
-subplot(2,1,2)
-%Time plot
-timeArray = makeTimePlot(codes);
-
-figure(2)
-subplot(2,1,1)
-%Errors total plot
-totalErrorArray = makeTotalErrorsPlot(codes);
-
-subplot(2,1,2)
-%Efficiency plot
-efficiencyArray = makeEfficiencyPlot(codes);
-
-%Export Data
-exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);
+[conv1Export, conv2Export, conv3Export] = exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);
