@@ -7,9 +7,9 @@ function y = makeTimePlot( codes )
             y(j,i) = code.timeTotal(j);
         end
     end
-    bar(y)
+    x = 0.0:0.01:0.1;
+    bar(x,y);
     ylabel('Time');
-    xticklabels({'0.1'; '0.2'; '0.3'; '0.4'; '0.5'})
     xlabel('Bit Error Probability');
 end
 

@@ -6,7 +6,7 @@ codes = setupCodesData();
 [burstErrorFlag, burstLength, bscErrorProb, numberOfIterations] = setupSimulationProperties();
 
 %SIMULATION%%%%%%
-while bscErrorProb < 0.51
+while bscErrorProb < 0.11
     
     for n = 1:numberOfIterations
         transmissionForCurrentErrorProb(codes, bscErrorProb, burstErrorFlag, burstLength);
@@ -17,7 +17,7 @@ while bscErrorProb < 0.51
         code.calculateErrorTotalForCurrentErrorProb();
     end
     
-    bscErrorProb = bscErrorProb + 0.1;
+    bscErrorProb = bscErrorProb + 0.01;
 end
 
 [errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes);

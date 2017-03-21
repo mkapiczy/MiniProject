@@ -6,9 +6,8 @@ for i=1:length(codes)
         y(j,i) = code.errorTotal(j);
     end
 end
-x = 0.1:0.1:0.5;
-bar(y)
-xticklabels({'0.1'; '0.2'; '0.3'; '0.4'; '0.5'})
+x = 0.0:0.01:0.1;
+bar(x,y);
 xlabel('Bit Error Probability');
 ylabel('Bit Error Rate');
 end
