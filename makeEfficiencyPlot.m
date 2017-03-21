@@ -1,4 +1,4 @@
-function y = makeTotalErrorsPlot( codes )
+function y = makeEfficiencyPlot( codes )
 
     y = zeros(length(codes(1).timeTotal), length(codes));
     for i=1:length(codes)
