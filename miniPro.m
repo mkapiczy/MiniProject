@@ -6,7 +6,7 @@ burstErrorFlag = false;
 burstLength = 8;
 bscErrorProb = 0.01;
 bscErrorInterval = 0.01;
-bscErrorThreshold = 0.11;
+bscErrorThreshold = 0.16;
 numberOfIterations = 1;
 
 xAxisValues = bscErrorProb:bscErrorInterval:bscErrorThreshold;

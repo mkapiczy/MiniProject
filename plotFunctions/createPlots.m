@@ -1,10 +1,7 @@
 function [ errorProbArray,timeArray , totalErrorArray, efficiencyArray ] = createPlots( codes,xAxisValues)
 
-    labels = strings(length(xAxisValues));
-    for i = 1:length(xAxisValues)
-        s = num2str(xAxisValues(i),2);
-        labels(i) = s;
-    end
+    %Send x values to next object
+    labels = xAxisValues;
     
     %Setup legends
     legends = {};
