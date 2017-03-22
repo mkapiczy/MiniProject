@@ -38,3 +38,6 @@ end
 [errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes,  xAxisValues, legends);
 
 [conv1Export, conv2Export, conv3Export] = exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);
+
+
+%bla bla test%
