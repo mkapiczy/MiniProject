@@ -1,4 +1,4 @@
-function y = makeEfficiencyPlot( codes,labels )
+function y = makeEfficiencyPlot( codes,labels, legends )
 
     y = zeros(length(codes(1).timeTotal), length(codes));
     for i=1:length(codes)
@@ -12,7 +12,7 @@ function y = makeEfficiencyPlot( codes,labels )
         end
     end
     
-    y  = drawPlot(y, 'Bits corrected pr. second', 'Bit Error Probability',labels,'Bits corrected pr. second');
+    y  = drawPlot(y, 'Bits corrected pr. second', 'Bit Error Probability',labels,'Bits corrected pr. second', legends);
     
 end
 
