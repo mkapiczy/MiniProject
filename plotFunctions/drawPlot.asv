@@ -5,6 +5,5 @@ function y = drawPlot(y, plotTitle, xLabel, labels, yLabel, legends )
     xticklabels(labels);
     ylabel(yLabel);
     grid on;
-    legend(legends, 'location', 'northwest');
 end
 

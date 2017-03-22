@@ -6,13 +6,15 @@ classdef MyCode < handle
         timeForSingleErrorProbability,
         timeTotal,
         errorRatesForSingleErrorProbability,
-        errorTotal 
+        errorTotal,
+        name
     end
     
     methods
-        function this = MyCode(trellisConvVal, constaintLengthVal)
+        function this = MyCode(trellisConvVal, constaintLengthVal, name)
             this.trellisConv = trellisConvVal;
             this.costaintLength = constaintLengthVal;
+            this.name = name;
         end
         
         function addErrorRateForSingleErrorProbability(this, errorRate)
