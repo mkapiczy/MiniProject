@@ -27,14 +27,6 @@ while burstLength < burstThreshold
     burstLength = burstLength + burstInterval;
 end
 
-%Setup legends
-legends = {};
-i=1;
-for code = codes
-    legends{1,i} = code.name;
-    i = i + 1;
-end
-
-[errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes,  xAxisValues, legends);
+[errorProbArray, timeArray, totalErrorArray, efficiencyArray] = createPlots(codes,  xAxisValues);
 
 [conv1Export, conv2Export, conv3Export] = exportData(errorProbArray, timeArray, totalErrorArray, efficiencyArray);

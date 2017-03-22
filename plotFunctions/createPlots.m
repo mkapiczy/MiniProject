@@ -1,4 +1,4 @@
-function [ errorProbArray,timeArray , totalErrorArray, efficiencyArray ] = createPlots( codes,xAxisValues, legends )
+function [ errorProbArray,timeArray , totalErrorArray, efficiencyArray ] = createPlots( codes,xAxisValues )
 
     labels = strings(length(xAxisValues));
     for i = 1:length(xAxisValues)
@@ -9,20 +9,19 @@ function [ errorProbArray,timeArray , totalErrorArray, efficiencyArray ] = creat
     figure(1)
     subplot(2,1,1)
     %Different error prob plot
-    errorProbArray = makeErrorProbPlot(codes,labels,legends);
+    errorProbArray = makeErrorProbPlot(codes,labels);
 
     subplot(2,1,2)
     %Time plot
-    timeArray = makeTimePlot(codes,labels,legends);
+    timeArray = makeTimePlot(codes,labels);
 
     figure(2)
     subplot(2,1,1)
     %Errors total plot
-    totalErrorArray = makeTotalErrorsPlot(codes,labels,legends);
+    totalErrorArray = makeTotalErrorsPlot(codes,labels);
 
     subplot(2,1,2)
     %Efficiency plot
-    %legends = {'Conv1', 'Conv2', 'Conv3'};
-    efficiencyArray = makeEfficiencyPlot(codes,labels,legends);
+    efficiencyArray = makeEfficiencyPlot(codes,labels);
 end
 
