@@ -8,11 +8,7 @@ function y = makeTimePlot( codes,labels )
         end
     end
     
-    plot(y, '-x');
-    title('Time');
-    xticklabels(labels);
-    ylabel('Seconds');
-    xlabel('Bit Error Probability');
-    grid on;
+    y  = drawPlot(y, 'Time', 'Bit Error Probability',labels,'Seconds');
+   
 end
 

@@ -12,11 +12,7 @@ function y = makeTotalErrorsPlot( codes,labels )
         end
     end
  
-    plot(y, '-x');
-    title('Errors Corrected');
-    xticklabels(labels);
-    ylabel('Errors Corrected');
-    xlabel('Bit Error Probability');
-    grid on;
+    y  = drawPlot(y, 'Errors Corrected', 'Bit Error Probability',labels,'Errors Corrected');
+    
 end
 
