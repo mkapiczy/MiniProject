@@ -7,20 +7,22 @@ function [ errorProbArray,timeArray , totalErrorArray, efficiencyArray ] = creat
     end
     
     figure(1)
-    subplot(2,1,1)
+    %subplot(2,1,1)
     %Different error prob plot
     errorProbArray = makeErrorProbPlot(codes,labels);
-
-    subplot(2,1,2)
+    
+    figure(2)
+    %subplot(2,1,2)
     %Time plot
     timeArray = makeTimePlot(codes,labels);
 
-    figure(2)
-    subplot(2,1,1)
+    figure(3)
+    %subplot(2,1,1)
     %Errors total plot
     totalErrorArray = makeTotalErrorsPlot(codes,labels);
-
-    subplot(2,1,2)
+    
+    figure(4)
+    %subplot(2,1,2)
     %Efficiency plot
     efficiencyArray = makeEfficiencyPlot(codes,labels);
 end

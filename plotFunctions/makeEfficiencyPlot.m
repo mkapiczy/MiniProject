@@ -11,9 +11,10 @@ function y = makeEfficiencyPlot( codes,labels )
             y(j,i) = errorsCorrected/code.timeTotal(j);
         end
     end
-    bar(y);
-    xticklabels(labels);
+    plot(y, '-x');
+    title('Bits corrected pr. second');
     ylabel('Bits corrected pr. second');
     xlabel('Bit Error Probability');
+    grid on;
 end
 

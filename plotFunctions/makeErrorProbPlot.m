@@ -7,9 +7,11 @@ for i=1:length(codes)
     end
 end
 
-bar(y);
+plot(y, '-x');
+title('BER');
 xlabel('Bit Error Probability');
 xticklabels(labels);
 ylabel('Bit Error Rate');
+grid on;
 end
 
