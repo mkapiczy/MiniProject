@@ -1,4 +1,4 @@
-function y = makeTotalErrorsPlot( codes,labels )
+function y = makeTotalErrorsPlot( codes,labels,legends )
 
     y = zeros(length(codes(1).timeTotal), length(codes));
     for i=1:length(codes)
@@ -16,5 +16,6 @@ function y = makeTotalErrorsPlot( codes,labels )
     xticklabels(labels);
     ylabel('Errors Corrected');
     xlabel('Bit Error Probability');
+    legend(legends, 'location', 'northwest');
 end
 
