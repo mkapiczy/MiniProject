@@ -7,9 +7,6 @@ for i=1:length(codes)
     end
 end
 
-bar(y);
-xlabel('Bit Error Probability');
-xticklabels(labels);
-ylabel('Bit Error Rate');
+y  = drawPlot(y, 'BER', 'Bit Error Probability',labels, 'Bit Error Rate');
 end
 

@@ -8,9 +8,7 @@ function y = makeTimePlot( codes,labels )
         end
     end
     
-    bar(y);
-    xticklabels(labels);
-    ylabel('Time');
-    xlabel('Bit Error Probability');
+    y  = drawPlot(y, 'Time', 'Bit Error Probability',labels,'Seconds');
+   
 end
 
