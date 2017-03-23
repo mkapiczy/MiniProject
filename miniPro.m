@@ -7,7 +7,7 @@ burstLength = 8;
 bscErrorProb = 0.01;
 bscErrorInterval = 0.01;
 bscErrorThreshold = 0.16;
-numberOfIterations = 1;
+numberOfIterations = 10;
 
 xAxisValues = bscErrorProb:bscErrorInterval:bscErrorThreshold;
 
